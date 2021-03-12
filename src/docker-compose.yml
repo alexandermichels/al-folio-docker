@@ -1,0 +1,11 @@
+version: "2"
+services:
+  site:
+    image: docker.io/alexandermichels/al-folio-docker:2021.03.12
+    command: tail -F anything # https://stackoverflow.com/questions/38546755/docker-compose-keep-container-running/56690087
+    restart: always
+    user: root
+    network_mode: host
+    volumes:
+      # full path to the local copy of your github repo
+      - "<full path to the local copy of your github repo>:/root/my-al-folio-site:rw"
